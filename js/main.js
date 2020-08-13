@@ -9,8 +9,7 @@ const products = [
 
 /**
  * Функция для формирования вёрстки каждого товара.
- * @param {string} title название товара;
- * @param {number} price цена товара.
+ * @param {obj} product объект товара;
  */
 const renderProduct = (product = { title: 'Без названия', price: 'n/a' }) => {
   return `<div class="product-item">

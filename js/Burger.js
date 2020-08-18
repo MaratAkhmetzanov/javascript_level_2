@@ -74,4 +74,3 @@ class Burger {
 }
 
 let burger = new Burger();
-console.log(burger);

@@ -1,7 +1,7 @@
 'use strict';
 
 class Cart {
-  constructor(container = '.products') {
+  constructor(container = '.cart') {
     this.container = container;
     this.cartList = [];
     this.totalPrice = this.totalPriceCalc();

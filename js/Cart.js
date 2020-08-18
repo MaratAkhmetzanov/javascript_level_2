@@ -1,8 +1,10 @@
+'use strict';
+
 class Cart {
   constructor(container = '.products') {
     this.container = container;
     this.cartList = [];
-    this.totalPrice = this._totalPriceCalc();
+    this.totalPrice = this.totalPriceCalc();
   }
 
   /**
@@ -33,7 +35,7 @@ class Cart {
   /**
    * Высчитывает общую стоимость корзины и записывает в свойство корзины
    */
-  _totalPriceCalc() {
+  totalPriceCalc() {
     this.totalPrice = 0;
     this.cartList.forEach((item) => {
       this.totalPrice += item.price;

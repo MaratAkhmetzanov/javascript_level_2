@@ -1,3 +1,5 @@
+'use strict';
+
 class ProductList {
   constructor(container = '.products') {
     this.container = container;

@@ -3,29 +3,45 @@
 class Cart {
   constructor(container = ".cart-list") {
     this.container = container;
-    this.cartList = [
-      {
-        id_product: 123,
-        product_name: "Ноутбук",
-        price: 45600,
-        quantity: 1,
-      },
-      {
-        id_product: 123,
-        product_name: "Ноутбук",
-        price: 45600,
-        quantity: 1,
-      },
-    ];
-    this.totalPrice = this.totalPriceCalc();
+    this.cartList = [];
+    this.amount = 0;
+    this.countGoods = 0;
+    this._getCart().then((data) => {
+      this.cartList = [...data.contents];
+      this.totalPrice = data.amount;
+      this.totalPrice = data.countGoods;
+      this.render();
+    });
+  }
+
+  _getCart() {
+    return fetch(`${API}/getBasket.json`)
+      .then((result) => result.json())
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  /**
+   * Получение списка товаров в корзине
+   */
+  getCartList() {
+    return this.cartList;
   }
 
   /**
    * Добавляет продукт в корзину.
-   * @param {Object} product объект продукта
+   * @param {int} productId id продукта
    */
-  addToCart(product) {
-    this.cartList.push(product);
+  addToCart(productId) {
+    let existIdex = this.cartList.findIndex((el) => el.id_product == productId);
+    if (existIdex >= 0) {
+      this.cartList[existIdex].quantity++;
+    } else {
+      // TODO
+    }
+    this.setTotalPrice();
+    this.countGoods++;
   }
 
   /**
@@ -33,26 +49,28 @@ class Cart {
    * @param {int} id идентификатор продукта
    */
   removeFromCart(id) {
-    this.cartList.splice(id, 1);
+    this.cartList.splice(
+      this.cartList.findIndex((el) => el.id_product == id),
+      1
+    );
     this.render();
   }
 
   /**
-   * Очищает корзину
+   * Получает общую стоимость товаров в корзине
    */
-  clearCart() {
-    this.cartList = [];
-    this.render();
+  getTotalPrice() {
+    return this.amount;
   }
 
   /**
    * Высчитывает общую стоимость корзины и записывает в свойство корзины
    */
-  totalPriceCalc() {
-    this.totalPrice = 0;
-    this.cartList.forEach((item) => {
-      this.totalPrice += item.price;
-    });
+  setTotalPrice() {
+    return (this.amount = this.cartList.reduce(
+      (accum, item) => (accum += item.price * item.quantity),
+      0
+    ));
   }
 
   /**
@@ -60,13 +78,11 @@ class Cart {
    */
   render() {
     const block = document.querySelector(this.container);
-    console.log(block);
     block.innerHTML = "";
     for (let i = 0; i < this.cartList.length; i++) {
-      const item = new CartItem(this.cartList[i], i);
+      const item = new CartItem(this.cartList[i]);
       block.insertAdjacentHTML("beforeend", item.render());
     }
-    console.log(block.innerHTML);
     document.querySelectorAll(".remove-btn").forEach((btn) => {
       btn.addEventListener("click", () => {
         this.removeFromCart(btn.dataset.id);
@@ -76,12 +92,11 @@ class Cart {
 }
 
 class CartItem {
-  constructor(product, id, img = "https://placehold.it/200x150") {
-    this.img = img;
-    this.id = product.id_product;
-    this.title = product.product_name;
+  constructor(product) {
+    this.id_product = product.id_product;
+    this.product_name = product.product_name;
     this.price = product.price;
-    this.itemId = id;
+    this.quantity = product.quantity;
   }
 
   /**
@@ -89,13 +104,12 @@ class CartItem {
    */
   render() {
     return `<div class="cart-item">
-				<img src="${this.img}">
-				<h3>${this.title}</h3>
+				<h3>${this.product_name}</h3>
 				<p>${this.price}</p>
-				<button class="remove-btn" data-id="${this.itemId}">Удалить</button>
+				<p>${this.quantity}</p>
+				<button class="remove-btn" data-id="${this.id_product}">Удалить</button>
 			</div>`;
   }
 }
 
 let cart = new Cart();
-cart.render();

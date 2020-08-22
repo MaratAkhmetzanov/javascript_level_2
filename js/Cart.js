@@ -1,9 +1,22 @@
-'use strict';
+"use strict";
 
 class Cart {
-  constructor(container = '.cart') {
+  constructor(container = ".cart-list") {
     this.container = container;
-    this.cartList = [];
+    this.cartList = [
+      {
+        id_product: 123,
+        product_name: "Ноутбук",
+        price: 45600,
+        quantity: 1,
+      },
+      {
+        id_product: 123,
+        product_name: "Ноутбук",
+        price: 45600,
+        quantity: 1,
+      },
+    ];
     this.totalPrice = this.totalPriceCalc();
   }
 
@@ -47,13 +60,15 @@ class Cart {
    */
   render() {
     const block = document.querySelector(this.container);
-    block.innerHTML = '';
+    console.log(block);
+    block.innerHTML = "";
     for (let i = 0; i < this.cartList.length; i++) {
       const item = new CartItem(this.cartList[i], i);
-      block.insertAdjacentHTML('beforeend', item.render());
+      block.insertAdjacentHTML("beforeend", item.render());
     }
-    document.querySelectorAll('.remove-btn').forEach((btn) => {
-      btn.addEventListener('click', () => {
+    console.log(block.innerHTML);
+    document.querySelectorAll(".remove-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
         this.removeFromCart(btn.dataset.id);
       });
     });
@@ -61,10 +76,10 @@ class Cart {
 }
 
 class CartItem {
-  constructor(product, id, img = 'https://placehold.it/200x150') {
+  constructor(product, id, img = "https://placehold.it/200x150") {
     this.img = img;
-    this.id = product.id;
-    this.title = product.title;
+    this.id = product.id_product;
+    this.title = product.product_name;
     this.price = product.price;
     this.itemId = id;
   }
@@ -83,3 +98,4 @@ class CartItem {
 }
 
 let cart = new Cart();
+cart.render();

@@ -14,7 +14,7 @@
       <label for="#">Комментарий: <input type="text" /></label>
       <input type="submit" class="form-submit" />
     </form>
-
+    <p class="error-text"></p>
     <style>
       label {
         display: block;
@@ -30,6 +30,7 @@
       function checkRegexp(regexp, container) {
         if (!regexp.test(container.value)) {
           container.classList.add('error');
+          container.insertAdjacentText('afterend', ' ошибка');
         } else {
           container.classList.remove('error');
         }
@@ -37,15 +38,16 @@
 
       document.querySelector('.form-submit').addEventListener('click', (e) => {
         e.preventDefault;
-        const inputName = document.querySelector('.input-name');
-        const inputNumber = document.querySelector('.input-number');
-        const inputEmail = document.querySelector('.input-email');
-        const regexp = /^[a-zа-яё]+$/iu;
-        const regexpNum = /^\+7\(\d{3}\)\d{3}-\d{4}$/;
-        const regexpEmail = /^[a-z0-9._-]+@mail\.ru$/i;
-        checkRegexp(regexp, inputName);
-        checkRegexp(regexpNum, inputNumber);
-        checkRegexp(regexpEmail, inputEmail);
+        document.querySelector('.input-name').innerHTML = '';
+        checkRegexp(/^[a-zа-яё]+$/iu, document.querySelector('.input-name'));
+        checkRegexp(
+          /^\+7\(\d{3}\)\d{3}-\d{4}$/,
+          document.querySelector('.input-number')
+        );
+        checkRegexp(
+          /^[a-z0-9._-]+@mail\.ru$/i,
+          document.querySelector('.input-email')
+        );
       });
     </script>
   </body>

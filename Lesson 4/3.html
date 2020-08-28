@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Обратная связь</h1>
+    <form action="#">
+      <label for="#">Имя: <input type="text" class="input-name" /></label>
+      <label for="#">Номер: <input type="text" class="input-number" /></label>
+      <label for="#">Почта: <input type="text" class="input-email" /></label>
+      <label for="#">Комментарий: <input type="text" /></label>
+      <input type="submit" class="form-submit" />
+    </form>
+    <p class="error-text"></p>
+    <style>
+      label {
+        display: block;
+        margin-bottom: 12px;
+      }
+
+      .error {
+        border: 2px solid red;
+      }
+    </style>
+
+    <script>
+      function checkRegexp(regexp, container) {
+        if (!regexp.test(container.value)) {
+          container.classList.add('error');
+          container.insertAdjacentText('afterend', ' ошибка');
+        } else {
+          container.classList.remove('error');
+        }
+      }
+
+      document.querySelector('.form-submit').addEventListener('click', (e) => {
+        e.preventDefault;
+        document.querySelector('.input-name').innerHTML = '';
+        checkRegexp(/^[a-zа-яё]+$/iu, document.querySelector('.input-name'));
+        checkRegexp(
+          /^\+7\(\d{3}\)\d{3}-\d{4}$/,
+          document.querySelector('.input-number')
+        );
+        checkRegexp(
+          /^[a-z0-9._-]+@mail\.ru$/i,
+          document.querySelector('.input-email')
+        );
+      });
+    </script>
+  </body>
+</html>

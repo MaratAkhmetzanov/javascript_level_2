@@ -21,9 +21,9 @@ const app = new Vue({
         .catch((error) => console.log(error));
     },
     addProduct(item) {
+      this.connectionStatus = true;
       this.getJson(`${API}/addToBasket.json`).then((data) => {
-        if (data.result === 1) {
-          this.connectionStatus = true;
+        if (data.result === 0) {
           let find = this.cartItems.find(
             (el) => el.id_product === item.id_product
           );
@@ -40,9 +40,9 @@ const app = new Vue({
       });
     },
     remove(item) {
+      this.connectionStatus = true;
       this.getJson(`${API}/addToBasket.json`).then((data) => {
         if (data.result === 1) {
-          this.connectionStatus = true;
           if (item.quantity > 1) {
             item.quantity--;
           } else {

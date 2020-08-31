@@ -22,7 +22,7 @@ const app = new Vue({
     },
     addProduct(item) {
       this.getJson(`${API}/addToBasket.json`).then((data) => {
-        if (data.result === 0) {
+        if (data.result === 1) {
           this.connectionStatus = true;
           let find = this.cartItems.find(
             (el) => el.id_product === item.id_product

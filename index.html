@@ -8,23 +8,81 @@
     <title>Интернет магазин</title>
   </head>
   <body>
-    <header>
-      <div class="logo">E-shop</div>
-      <button class="btn-cart" type="button">Корзина</button>
-    </header>
-    <main>
-      <div class="products"></div>
-    </main>
-    <div class="cart hidden">
-      <div class="cart-wrp">
-        <h1 class="cart-header">Корзина</h1>
-        <div class="cart-list"></div>
-        <button class="btn-cart-close">Отмена</button>
-        <button>Оформить</button>
-      </div>
+    <div id="app">
+      <header>
+        <div class="logo">E-shop</div>
+        <div class="cart">
+          <form action="#" class="search-form">
+            <input type="text" class="search-field" v-model.lazy="searchLine" />
+            <button class="btn-search" type="submit" @click="filterGoods()">
+              <i class="fas fa-search"></i>
+            </button>
+          </form>
+          <button
+            @click="isVisibleCart=!isVisibleCart"
+            class="btn-cart"
+            type="button"
+          >
+            Корзина
+          </button>
+          <div v-if="isVisibleCart" class="cart-block">
+            <div class="no-products" v-if="!cartList.length">Корзина пуста</div>
+            <div
+              class="cart-item"
+              v-for="cartItem of cartList"
+              :key="cartItem.id_product"
+            >
+              <div class="product-bio">
+                <img :src="imgCart" alt="Some image" />
+                <div class="product-desc">
+                  <p class="product-title">{{cartItem.product_name}}</p>
+                  <p class="product-quantity">{{cartItem.quantity}}</p>
+                  <p class="product-single-price">{{cartItem.price}} each</p>
+                </div>
+              </div>
+              <div class="right-block">
+                <p class="product-price">
+                  {{cartItem.price * cartItem.quantity}} руб.
+                </p>
+                <button class="del-btn" @click="removeProduct(cartItem)">
+                  &times;
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <main>
+        <div class="products">
+          <div class="no-products" v-if="!filtered.length && products.length">
+            Нет продуктов с таким названием
+          </div>
+          <div class="no-products" v-if="!products.length">Нет продуктов</div>
+          <div
+            class="product-item"
+            v-for="product of filtered"
+            :key="product.id_product"
+          >
+            <img :src="imgCatalog" alt="Some img" />
+            <div class="desc">
+              <h3>{{product.product_name}}</h3>
+              <p>{{product.price}} руб.</p>
+              <button class="buy-btn" @click="addProduct(product)">
+                Купить
+              </button>
+            </div>
+          </div>
+        </div>
+      </main>
     </div>
+
+    <script src="js/vue.min.js"></script>
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"
+      integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP"
+      crossorigin="anonymous"
+    ></script>
     <script src="js/main.js"></script>
-    <script src="js/Products.js"></script>
-    <script src="js/Cart.js"></script>
   </body>
 </html>

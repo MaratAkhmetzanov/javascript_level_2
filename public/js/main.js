@@ -2,7 +2,6 @@ const app = new Vue({
   el: '#app',
   methods: {
     getJson(url) {
-      console.log(url);
       return fetch(url)
         .then((result) => result.json())
         .catch((error) => {

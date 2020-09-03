@@ -1,5 +1,30 @@
 {
     "amount": 0,
     "countGoods": 4,
-    "contents": []
+    "contents": [
+        {
+            "quantity": 1,
+            "id_product": 123,
+            "product_name": "Ноутбук",
+            "price": 45600,
+            "image": "https://placehold.it/200x150",
+            "image2": "https://placehold.it/50x100"
+        },
+        {
+            "quantity": 1,
+            "id_product": 124,
+            "product_name": "Keyboard",
+            "price": 1600,
+            "image": "https://placehold.it/200x150",
+            "image2": "https://placehold.it/50x100"
+        },
+        {
+            "quantity": 1,
+            "id_product": 456,
+            "product_name": "Мышка",
+            "price": 1000,
+            "image": "https://placehold.it/200x150",
+            "image2": "https://placehold.it/50x100"
+        }
+    ]
 }

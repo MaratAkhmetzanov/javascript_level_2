@@ -47,29 +47,6 @@ Vue.component('cart', {
           });
       }
     }
-    // remove(item) {
-    //   console.log(item);
-    //   let find = this.cartItems.find((el) => el.id_product === item.id_product);
-    //   if (find) {
-    //     if (find.quantity > 1) {
-    //       this.$parent
-    //         .putJson(`/api/cart/${find.id_product}`, { quantity: -1 })
-    //         .then((data) => {
-    //           if (data.result === 1) {
-    //             find.quantity--;
-    //           }
-    //         });
-    //     } else {
-    //       this.$parent
-    //         .putJson(`/api/cart/${find.id_product}`, { quantity: -1 })
-    //         .then((data) => {
-    //           if (data.result === 1) {
-    //             this.cartItems.splice(this.cartItems.indexOf(item), 1);
-    //           }
-    //         });
-    //     }
-    //   }
-    // }
   },
   template: `<div>
                 <button class="btn-cart" type="button" @click="showCart = !showCart">Корзина</button>

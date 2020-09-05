@@ -1,0 +1,38 @@
+{
+  "stats": [
+    {
+      "time": "2020-09-05T09:09:22.260Z",
+      "action": "change",
+      "productId": "123"
+    },
+    {
+      "time": "2020-09-05T09:09:29.259Z",
+      "action": "change",
+      "productId": "457"
+    },
+    {
+      "time": "2020-09-05T09:09:32.492Z",
+      "action": "add"
+    },
+    {
+      "time": "2020-09-05T09:09:34.823Z",
+      "action": "remove",
+      "productId": "123"
+    },
+    {
+      "time": "2020-09-05T09:09:35.992Z",
+      "action": "remove",
+      "productId": "456"
+    },
+    {
+      "time": "2020-09-05T09:09:36.677Z",
+      "action": "remove",
+      "productId": "457"
+    },
+    {
+      "time": "2020-09-05T09:09:37.424Z",
+      "action": "remove",
+      "productId": "124"
+    }
+  ]
+}

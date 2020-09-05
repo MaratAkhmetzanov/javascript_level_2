@@ -38,8 +38,8 @@ let handler = (req, res, action, file) => {
         if (err) {
           res.sendStatus(404, JSON.stringify({ result: 0, text: err }));
         } else {
-          writeStats(action, req);
           res.send(JSON.stringify({ result: 1 }));
+          writeStats(action, req);
         }
       });
     }

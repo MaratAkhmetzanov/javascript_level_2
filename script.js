@@ -1,12 +1,11 @@
-import filterEl from './FilterComp.js';
+import products from './mywebpack/modules/ProductComponent.js';
+import cart from './mywebpack/modules/CartComponent.js';
 
 const app = new Vue({
   el: '#app',
   components: {
     'products': products,
-    'cart': cart,
-    'filter-el': filterEl,
-    'error': error
+    'cart': cart
   },
   methods: {
     getJson(url) {

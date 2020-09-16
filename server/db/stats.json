@@ -1,38 +1,135 @@
 {
-  "stats": [
-    {
-      "time": "2020-09-05T09:09:22.260Z",
-      "action": "change",
-      "productId": "123"
-    },
-    {
-      "time": "2020-09-05T09:09:29.259Z",
-      "action": "change",
-      "productId": "457"
-    },
-    {
-      "time": "2020-09-05T09:09:32.492Z",
-      "action": "add"
-    },
-    {
-      "time": "2020-09-05T09:09:34.823Z",
-      "action": "remove",
-      "productId": "123"
-    },
-    {
-      "time": "2020-09-05T09:09:35.992Z",
-      "action": "remove",
-      "productId": "456"
-    },
-    {
-      "time": "2020-09-05T09:09:36.677Z",
-      "action": "remove",
-      "productId": "457"
-    },
-    {
-      "time": "2020-09-05T09:09:37.424Z",
-      "action": "remove",
-      "productId": "124"
-    }
-  ]
+    "stats": [
+        {
+            "time": "2020-09-05T09:09:22.260Z",
+            "action": "change",
+            "productId": "123"
+        },
+        {
+            "time": "2020-09-05T09:09:29.259Z",
+            "action": "change",
+            "productId": "457"
+        },
+        {
+            "time": "2020-09-05T09:09:32.492Z",
+            "action": "add"
+        },
+        {
+            "time": "2020-09-05T09:09:34.823Z",
+            "action": "remove",
+            "productId": "123"
+        },
+        {
+            "time": "2020-09-05T09:09:35.992Z",
+            "action": "remove",
+            "productId": "456"
+        },
+        {
+            "time": "2020-09-05T09:09:36.677Z",
+            "action": "remove",
+            "productId": "457"
+        },
+        {
+            "time": "2020-09-05T09:09:37.424Z",
+            "action": "remove",
+            "productId": "124"
+        },
+        {
+            "time": "2020-09-07T21:47:53.588Z",
+            "action": "add"
+        },
+        {
+            "time": "2020-09-08T07:47:49.262Z",
+            "action": "add"
+        },
+        {
+            "time": "2020-09-08T07:47:50.725Z",
+            "action": "change",
+            "productId": "123"
+        },
+        {
+            "time": "2020-09-08T07:47:52.069Z",
+            "action": "remove",
+            "productId": "123"
+        },
+        {
+            "time": "2020-09-08T07:47:52.719Z",
+            "action": "remove",
+            "productId": "457"
+        },
+        {
+            "time": "2020-09-08T07:47:54.325Z",
+            "action": "add"
+        },
+        {
+            "time": "2020-09-08T07:47:55.021Z",
+            "action": "add"
+        },
+        {
+            "time": "2020-09-08T07:47:55.764Z",
+            "action": "add"
+        },
+        {
+            "time": "2020-09-08T11:41:26.932Z",
+            "action": "change",
+            "productId": "123"
+        },
+        {
+            "time": "2020-09-08T11:41:30.380Z",
+            "action": "remove",
+            "productId": "123"
+        },
+        {
+            "time": "2020-09-08T11:41:31.107Z",
+            "action": "remove",
+            "productId": "457"
+        },
+        {
+            "time": "2020-09-08T11:41:31.813Z",
+            "action": "remove",
+            "productId": "124"
+        },
+        {
+            "time": "2020-09-08T11:41:33.895Z",
+            "action": "add"
+        },
+        {
+            "time": "2020-09-08T11:41:34.719Z",
+            "action": "change",
+            "productId": "124"
+        },
+        {
+            "time": "2020-09-08T11:41:35.429Z",
+            "action": "change",
+            "productId": "124"
+        },
+        {
+            "time": "2020-09-08T11:41:38.455Z",
+            "action": "remove",
+            "productId": "124"
+        },
+        {
+            "time": "2020-09-08T12:14:49.094Z",
+            "action": "add"
+        },
+        {
+            "time": "2020-09-08T12:14:50.181Z",
+            "action": "add"
+        },
+        {
+            "time": "2020-09-08T12:14:51.527Z",
+            "action": "change",
+            "productId": "123"
+        },
+        {
+            "time": "2020-09-08T12:14:52.735Z",
+            "action": "change",
+            "productId": "123"
+        },
+        {
+            "time": "2020-09-08T12:14:53.876Z",
+            "action": "change",
+            "productId": "123"
+        }
+    ]
 }
